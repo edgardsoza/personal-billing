@@ -1,14 +1,24 @@
-<h1>Details <%= @category.name %></h1>
+<div class="back-button">
+  <%= link_to categories_path do %>
+    <i class="fas fa-chevron-left"></i>
+  <% end %>
+</div>
 
-<p>Category: <%= @category.name %></p>
-<p>Icon: <%= image_tag(@category.icon) %></p>
+<h1>Details</h1>
 
-<% @category.transactions.each do |transaction| %>
+<% total_amount = @category.category_transactions.sum { |ct| ct.transactions.amount } %>
+<div class="total-box">
+<p>TOTAL PAYMENT</p>
+<p><%= total_amount %></p>
+</div>
+
+<p style="width: 50px; height: 50px; overflow: hidden;"><%= image_tag(@category.icon, alt: @category.name, style: "width: 100%; height: auto; display: block;") %></p>
+<p><%= @category.name %></p>
+
+<% @category.category_transactions.each do |category_transaction| %>
+  <% transaction = category_transaction.transactions %>
   <p><strong>Transaction: <%= transaction.name %></strong></p>
   <p>Created at: <%= transaction.created_at %></p>
 <% end %>
 
-<% total_amount = @category.transactions.sum(:amount) %>
-<p>Total Amount: <%= total_amount %></p>
-
-<%= link_to "Back to Categories", categories_path %>
+<%= link_to "Add a new transaction", new_category_transaction_path(@category) %>

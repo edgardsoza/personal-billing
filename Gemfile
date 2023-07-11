@@ -10,6 +10,9 @@ gem "rails", "~> 7.0.6"
 gem "sprockets-rails"
 gem "pg"
 gem "devise"
+gem 'font-awesome-sass'
+gem 'font-awesome-rails'
+
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
