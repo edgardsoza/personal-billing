@@ -1,6 +1,6 @@
 <h1>New Transaction</h1>
 
-<%= form_with model: @transaction, url: category_transactions_path(@category) do |form| %>
+<%= form_with model: [@category, @transaction] do |form| %>
   <div>
     <%= form.label :name %>
     <%= form.text_field :name, required: true %>
@@ -12,11 +12,13 @@
   </div>
 
   <div>
-    <%= form.label :category_ids %>
-    <%= form.collection_select :category_ids, Category.all, :id, :name, { prompt: 'Select Category' }, multiple: true, required: true %>
+    <%= form.label :categories %>
+    <% Category.all.each do |category| %>
+      <%= form.collection_check_boxes :category_ids, [category], :id, :name, multiple: true %>
+    <% end %>
   </div>
 
-  <%= form.submit "Save" %>
+  <div>
+    <%= form.submit "Save" %>
+  </div>
 <% end %>
-
-<%= link_to "Back", category_path(@category) %>

@@ -10,13 +10,9 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'log_out'
   get 'sign_up', to: 'users#new', as: 'sign_up'
   post 'sign_up', to: 'users#create'
-  
+
   resources :categories, only: [:index, :new, :create, :destroy, :show] do
-    resources :transactions, only: [:show, :new, :create]
+    resources :purchases, only: [:show, :new, :create]
     resources :category_transactions, only: [:create, :show, :new]
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
