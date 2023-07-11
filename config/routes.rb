@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'users#new', as: 'sign_up'
   post 'sign_up', to: 'users#create'
   
-  resources :categories, only: [:index, :new, :create, :destroy] do
-    resources :transactions
+  resources :categories, only: [:index, :new, :create, :destroy, :show] do
+    resources :transactions, only: [:show, :new, :create]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

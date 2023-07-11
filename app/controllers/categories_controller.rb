@@ -10,10 +10,11 @@ class CategoriesController < ApplicationController
     end
   
     def create
-      @category = Category.new(category_params)
+      @category = current_user.categories.new(category_params)
       if @category.save
         redirect_to categories_path, notice: 'Category was successfully created.'
       else
+        puts @category.errors.full_messages # Add this line for debugging
         render :new
       end
     end
