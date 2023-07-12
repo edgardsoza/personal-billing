@@ -1,0 +1,36 @@
+<div class="title-container">
+  <h1 class="title">New Category</h1>
+</div>
+
+<%= form_with(model: @category, url: categories_path) do |form| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% @category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field-new-category">
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true %>
+  </div>
+
+  <div class="field-new-category">
+    <%= form.label :icon  %>
+    <%= form.text_field :icon, required: true %>
+  </div>
+
+  <div class="actions">
+    <div class="back-button">
+      <%= link_to categories_path do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+    <%= form.submit "Create Category", class: "create-button" %>
+  </div>
+<% end %>

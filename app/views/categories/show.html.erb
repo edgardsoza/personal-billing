@@ -1,0 +1,29 @@
+<div class="details-container">
+<div class="back-button">
+  <%= link_to categories_path do %>
+    <i class="fas fa-chevron-left white-symbol"></i>
+  <% end %>
+</div>
+  <h1 class="details-title">Details</h1>
+</div>
+
+<div class="category-transactions-container">
+<p class="icon-container">
+  <%= image_tag(@category.icon, alt: @category.name, class: "category-image") %>
+</p>
+<p class="category-name"><%= @category.name %></p>
+<% total_amount = @category.category_transactions.sum { |ct| ct.purchase.amount } %>
+<div class="total-box">
+  <p>$<%= total_amount %></p>
+</div>
+</div>
+
+<% @category.category_transactions.order(created_at: :desc).each do |category_transaction| %>
+  <% purchase = category_transaction.purchase %>
+  <div class="transaction-box">
+    <p><strong>Transaction: <%= purchase.name %></strong></p>
+    <p>Created at: <%= purchase.created_at %></p>
+  </div>
+<% end %>
+
+<%= link_to "New Transaction", new_category_purchase_path(@category), class: "new-transaction-button" %>
