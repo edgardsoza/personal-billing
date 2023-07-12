@@ -11,7 +11,7 @@ class PurchasesController < ApplicationController
 
     if @purchase.save
       category_ids.each do |category_id|
-        CategoryTransaction.create(category_id: category_id, purchase_id: @purchase.id)
+        CategoryTransaction.create(category_id:, purchase_id: @purchase.id)
       end
       redirect_to category_path(@category), notice: 'Purchase was successfully created.'
     else
