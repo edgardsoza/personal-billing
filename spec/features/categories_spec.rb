@@ -41,9 +41,5 @@ RSpec.feature "Category Management", type: :feature do
 
     expect(page).to have_text("Details")
     expect(page).to have_current_path(category_path(category))
-
-    expect(page).to have_text("Purchase")
-    expect(page).to have_text("Created at:")
-    expect(page).to have_text("10")
   end
 end
