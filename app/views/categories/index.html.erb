@@ -1,17 +1,28 @@
-<h1>Transactions</h1>
-
-<% @categories.each do |category| %>
-  <div>
-    <h3><%= category.name %></h3>
-    <% total_amount = category.category_transactions.sum { |ct| ct.transaction.amount } %>
-    <p>Total Amount: <%= total_amount %></p>
-    <%= link_to category_path(category) do %>
-      <div style="width: 50px; height: 50px; overflow: hidden;">
-        <%= image_tag category.icon, alt: category.name, style: "width: 100%; height: auto; display: block;" %>
-      </div>
-    <% end %>
+<div class="transactions-container">
+  <div class="transactions-title">
+    <h1>Transactions</h1>
   </div>
-<% end %>
 
-<%= link_to "Add a New Category", new_category_path %>
-<%= link_to "Sign Out", log_out_path, method: :delete, class: "btn btn-primary" %>
+  <% @categories.each do |category| %>
+    <div class="category-box">
+      <%= link_to category_path(category) do %>
+        <div class="category-icon">
+        <%= image_tag category.icon, alt: category.name, class: "category-image" %>
+      </div>      
+      <% end %>
+      
+      <div class="category-details">
+        <h3><%= category.name %></h3>
+      </div>
+      <div>
+      <% total_amount = category.category_transactions.sum { |ct| ct.purchase.amount } %>
+      <p class="total-amount">$<%= total_amount %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="buttons-container">
+    <%= link_to "New Category", new_category_path, class: "btn btn-primary" %>
+    <%= link_to "Sign Out", log_out_path, method: :delete, class: "btn btn-primary" %>
+  </div>
+</div>

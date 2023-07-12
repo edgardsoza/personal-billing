@@ -1,4 +1,6 @@
-<h1>New Category</h1>
+<div class="title-container">
+  <h1 class="title">New Category</h1>
+</div>
 
 <%= form_with(model: @category, url: categories_path) do |form| %>
   <% if @category.errors.any? %>
@@ -13,23 +15,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field-new-category">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :icon %>
-    <%= form.text_field :icon %>
+  <div class="field-new-category">
+    <%= form.label :icon  %>
+    <%= form.text_field :icon, required: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Create Category" %>
+    <div class="back-button">
+      <%= link_to categories_path do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+    <%= form.submit "Create Category", class: "create-button" %>
   </div>
 <% end %>
-
-<div class="back-button">
-  <%= link_to categories_path do %>
-    <i class="fas fa-chevron-left"></i>
-  <% end %>
-</div>

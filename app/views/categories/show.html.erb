@@ -1,24 +1,29 @@
+<div class="details-container">
 <div class="back-button">
   <%= link_to categories_path do %>
-    <i class="fas fa-chevron-left"></i>
+    <i class="fas fa-chevron-left white-symbol"></i>
   <% end %>
 </div>
-
-<h1>Details</h1>
-
-<% total_amount = @category.category_transactions.sum { |ct| ct.transactions.amount } %>
-<div class="total-box">
-<p>TOTAL PAYMENT</p>
-<p><%= total_amount %></p>
+  <h1 class="details-title">Details</h1>
 </div>
 
-<p style="width: 50px; height: 50px; overflow: hidden;"><%= image_tag(@category.icon, alt: @category.name, style: "width: 100%; height: auto; display: block;") %></p>
-<p><%= @category.name %></p>
+<div class="category-transactions-container">
+<p class="icon-container">
+  <%= image_tag(@category.icon, alt: @category.name, class: "category-image") %>
+</p>
+<p class="category-name"><%= @category.name %></p>
+<% total_amount = @category.category_transactions.sum { |ct| ct.purchase.amount } %>
+<div class="total-box">
+  <p>$<%= total_amount %></p>
+</div>
+</div>
 
-<% @category.category_transactions.each do |category_transaction| %>
-  <% transaction = category_transaction.transactions %>
-  <p><strong>Transaction: <%= transaction.name %></strong></p>
-  <p>Created at: <%= transaction.created_at %></p>
+<% @category.category_transactions.order(created_at: :desc).each do |category_transaction| %>
+  <% purchase = category_transaction.purchase %>
+  <div class="transaction-box">
+    <p><strong>Transaction: <%= purchase.name %></strong></p>
+    <p>Created at: <%= purchase.created_at %></p>
+  </div>
 <% end %>
 
-<%= link_to "Add a new transaction", new_category_transaction_path(@category) %>
+<%= link_to "New Transaction", new_category_purchase_path(@category), class: "new-transaction-button" %>
