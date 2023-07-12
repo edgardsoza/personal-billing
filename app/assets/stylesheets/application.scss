@@ -279,6 +279,64 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .signup-container {
+    padding: 20px;
+    width: 300px;
+  }
+  
+  .signup-title {
+    margin-bottom: 30px;
+    background-color: blue;
+    padding: 20px 20px 20px 20px;
+  }
+
+  .sign_up_title {
+    color: white;
+    text-align: center;
+  }
+  
+  .field {
+    margin-bottom: 30px;
+  }
+  
+  .field label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="password"] {
+    width: 95%;
+    padding: 5px;
+  }
+  
+  .actions {
+    margin-top: 20px;
+  }
+  
+  .actions .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .actions .btn:hover {
+    background-color: darkblue;
+  }
+  
+  .actions .btn-secondary {
+    background-color: gray;
+  }
+  
+  .actions .btn-secondary:hover {
+    background-color: darkgray;
   }  
 }
   
