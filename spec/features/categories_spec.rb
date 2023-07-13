@@ -15,12 +15,12 @@ RSpec.feature 'Category Management', type: :feature do
 
     click_button 'Create Category'
 
-    expect(page).to have_text('Transactions')
+    expect(page).to have_text('TRANSACTIONS')
     expect(page).to have_current_path(categories_path)
   end
 
   scenario 'User can view category details and transactions' do
-    category = Category.create(name: 'Category 1', user: user, icon: 'https://example.com/category_icon.png')
+    category = Category.create(name: 'Category 1', user: 'user', icon: 'https://example.com/category_icon.png')
 
     visit category_path(category)
 
@@ -34,7 +34,7 @@ RSpec.feature 'Category Management', type: :feature do
     fill_in 'Amount', with: 10
     click_button 'Save'
 
-    expect(page).to have_text('Details')
+    expect(page).to have_text('DETAILS')
     expect(page).to have_current_path(category_path(category))
   end
 end

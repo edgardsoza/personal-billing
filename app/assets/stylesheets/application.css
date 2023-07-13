@@ -17,7 +17,7 @@ body {
 }
 
 .bold-text {
-  font-family: 'Proxima Nova', Arial, 'sans-serif';
+  font-family: 'Proxima Nova', Arial, sans-serif;
   font-weight: 700;
 }
 
@@ -30,7 +30,7 @@ h1 {
 @media (max-width: 600px) {
   body {
     background-color: #f1f1f1;
-    font-family: 'Proxima Nova Light', Arial, 'sans-serif';
+    font-family: 'Proxima Nova Light', Arial, sans-serif;
     font-weight: 300;
   }
 
