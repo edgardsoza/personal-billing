@@ -4,7 +4,7 @@ RSpec.feature 'Category Management', type: :feature do
   let(:user1) { User.create(name: 'John Doe', email: 'john@example.com', password: 'password') }
 
   before do
-    sign_in(user)
+    sign_in(user1)
   end
 
   scenario 'User can create a new category' do

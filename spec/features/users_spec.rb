@@ -4,7 +4,7 @@ RSpec.feature 'User Management', type: :feature do
   scenario 'User can sign up' do
     visit sign_up_path
 
-    fill_in 'Name', with: 'John Doe'
+    fill_in 'Full name', with: 'John Doe'
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
 

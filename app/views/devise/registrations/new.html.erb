@@ -16,15 +16,18 @@
     <% end %>
 
     <div class="field-signup">
-      <%= form.text_field :name, placeholder:'Full name' %>
+    <label for="Name" class="visually-hidden">Full Name</label>
+      <%= form.text_field :name, placeholder:'Full name', style: 'width: 98%; border: none; padding: 5px 5px 5px 5px' %>
     </div>
 
     <div class="field-signup">
-      <%= form.email_field :email, placeholder:'Email' %>
+    <label for="email" class="visually-hidden">Email</label>
+      <%= form.email_field :email, placeholder:'Email', style: 'width: 98%; border: none; padding: 5px 5px 5px 5px' %>
     </div>
 
     <div class="field-signup">
-      <%= form.password_field :password, placeholder: 'Password' %>
+    <label for="password" class="visually-hidden">Password</label>
+      <%= form.password_field :password, placeholder: 'Password', style: 'width: 98%; border: none; padding: 5px 5px 5px 5px' %>
     </div>
 
     <div class="actions">
