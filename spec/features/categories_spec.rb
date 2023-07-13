@@ -20,7 +20,7 @@ RSpec.feature 'Category Management', type: :feature do
   end
 
   scenario 'User can view category details and transactions' do
-    category = Category.create(name: 'Category 1', user:, icon: 'https://example.com/category_icon.png')
+    category = Category.create(name: 'Category 1', user: user, icon: 'https://example.com/category_icon.png')
 
     visit category_path(category)
 

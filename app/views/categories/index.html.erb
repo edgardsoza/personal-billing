@@ -1,6 +1,6 @@
 <div class="transactions-container">
   <div class="transactions-title">
-    <h1>Transactions</h1>
+    <h1 class="bold-text">TRANSACTIONS</h1>
   </div>
 
   <% @categories.each do |category| %>
@@ -16,7 +16,7 @@
       </div>
       <div>
       <% total_amount = category.category_transactions.sum { |ct| ct.purchase.amount } %>
-      <p class="total-amount">$<%= total_amount %></p>
+      <p class="total-amount bold-text">$<%= total_amount %></p>
       </div>
     </div>
   <% end %>
