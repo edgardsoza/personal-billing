@@ -164,7 +164,8 @@ If you like the project leave it a star.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We would like to thanks Microverse community.
+- I would like to thank Microverse for helping me in my journey to become a Fullstack developer.
+- I would like to give credit to <a href="https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding">Gregoire Vella</a> for his original design idea that inspired the creation of this app. The overall layout and design of this app were heavily influenced by his work, and I am grateful for the inspiration he provided.
 
 <p align="right"><a href="#readme-top">👆</a></p>
 
