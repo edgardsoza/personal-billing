@@ -1,0 +1,38 @@
+<div class="signup-container">
+  <div class="signup-title">
+    <h1 class="sign_up_title">REGISTER</h1>
+  </div>
+
+  <%= form_with(model: @user, url: sign_up_path) do |form| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field-signup">
+    <label for="Name" class="visually-hidden">Full Name</label>
+      <%= form.text_field :name, placeholder:'Full name', style: 'width: 98%; border: none; padding: 5px 5px 5px 5px' %>
+    </div>
+
+    <div class="field-signup">
+    <label for="email" class="visually-hidden">Email</label>
+      <%= form.email_field :email, placeholder:'Email', style: 'width: 98%; border: none; padding: 5px 5px 5px 5px' %>
+    </div>
+
+    <div class="field-signup">
+    <label for="password" class="visually-hidden">Password</label>
+      <%= form.password_field :password, placeholder: 'Password', style: 'width: 98%; border: none; padding: 5px 5px 5px 5px' %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Sign Up", class: "btn btn-primary" %>
+      <%= link_to "Log In", login_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>

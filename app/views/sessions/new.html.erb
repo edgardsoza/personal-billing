@@ -1,0 +1,26 @@
+<div class="login-container">
+  <div class="login-header">
+    <h1 class="login-title bold-text">LOGIN</h1>
+  </div>
+
+  <%= form_with(url: login_path) do |form| %>
+    <% if flash[:error] %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+
+    <div class="field-login">
+      <%= form.email_field :email, placeholder: 'Email', class: 'login-input' %>
+    </div>
+
+    <div class="field-login">
+      <%= form.password_field :password, placeholder: 'Password', class: 'login-input' %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Log In", class: 'login-button' %>
+      <%= link_to "Sign Up", sign_up_path, class: 'login-button' %>
+    </div>
+  <% end %>
+</div>
