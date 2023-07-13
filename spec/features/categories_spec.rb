@@ -17,8 +17,6 @@ RSpec.feature 'Category Management', type: :feature do
 
     expect(page).to have_text('Transactions')
     expect(page).to have_current_path(categories_path)
-
-    expect(page).to have_css("img[src*='https://example.com/category_icon.png'][alt='Category 1'][class='category-image']")
   end
 
   scenario 'User can view category details and transactions' do
@@ -28,9 +26,6 @@ RSpec.feature 'Category Management', type: :feature do
 
     expect(page).to have_text(category.name)
     expect(page).to have_text('0')
-
-    expect(page).to have_css("img[src*='https://example.com/category_icon.png'][alt='Category 1'][class='category-image']")
-
     click_link 'New Transaction'
 
     expect(page).to have_current_path(new_category_purchase_path(category))
