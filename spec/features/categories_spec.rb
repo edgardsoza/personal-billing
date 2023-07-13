@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Category Management', type: :feature do
-  let(:user) { User.create(name: 'John Doe', email: 'john@example.com', password: 'password') }
+  let(:user1) { User.create(name: 'John Doe', email: 'john@example.com', password: 'password') }
 
   before do
     sign_in(user)
@@ -20,7 +20,7 @@ RSpec.feature 'Category Management', type: :feature do
   end
 
   scenario 'User can view category details and transactions' do
-    category = Category.create(name: 'Category 1', user: 'user', icon: 'https://example.com/category_icon.png')
+    category = Category.create(name: 'Category 1', user: user1, icon: 'https://example.com/category_icon.png')
 
     visit category_path(category)
 

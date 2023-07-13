@@ -24,7 +24,7 @@ RSpec.feature 'User Management', type: :feature do
 
     click_button 'Log In'
 
-    expect(page).to have_text('Transactions')
+    expect(page).to have_text('TRANSACTIONS')
     expect(page).to have_current_path(categories_path)
   end
 end
